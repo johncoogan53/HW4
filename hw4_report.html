@@ -7748,12 +7748,47 @@ your result, is W converging to an optimal solution? Is W converging to a sparse
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The W values are converging at around 25 epochs, this solution appears to be an optimal solution because the loss is low but it is not a spase solution because none of the W values are zero.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(c) (6 pts)</strong> Since we have the knowledge that the ground-truth weight should have ||W||0 ≤ 2, we
 can apply projected gradient descent to enforce this sparse constraint. Redo the optimization
 process in (b), this time prune the elements in W after every gradient descent step to ensure
 ||Wl||0 ≤ 2. Plot the value of log(L) throughout the training, and use another figure to plot
 the value of each element in W in each step. From your result, is W converging to an optimal
 solution? Is W converging to a sparse solution?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="alt text" src="Report%20Images/projected%20grad%20desc.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Here we can see that W is converging on a sparse solution (only two of the W values are non-zero). This sparsification is at the expense of significant loss increase compared to the base vanilla gradient descent.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7779,13 +7814,103 @@ step. From your result, comment on the convergence performance under different �
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Below are the individual plots for each lambda value for L1 regularization:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/L1_02.png"/></p>
+<p><img alt="alt text" src="Report%20Images/L1_05.png"/></p>
+<p><img alt="alt text" src="Report%20Images/L1_1.png"/></p>
+<p><img alt="alt text" src="Report%20Images/L1_2.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>We also have all the L1 regularization plots together to see the differences:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/L1_All.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>What we see with increasing L1 strength is that the model weights are increasingly pushed towards zero leading to a sparser solution but this comes at the cost of higher loss values. Our model becomes more efficient (sparse) but at the expense of accuracy.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(e) (6 pts)</strong> Here we optimize the same objective as in (d), this time using proximal gradient update.
 Recall that the proximal operator of the ℓ1 regularizer is the soft thresholding function. Set the
 threshold in the soft thresholding function to {0.004, 0.01, 0.02, 0.04} respectively. Plot the value
 of log(L) throughout the training, and use another figure to plot the value of each element in W
 in each step. Compare the convergence performance with the results in (d). (Hint: Optimizing
 L + λ||W||1 using gradient descent with learning rate μ should correspond to proximal gradient
-update with threshold μλ)</p>
+update with threshold μλ).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>We can take a look at several individual plot for proximal gradient update with varying thresholding functions.</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/prox_02.png"/></p>
+<p><img alt="alt text" src="Report%20Images/prox_05.png"/></p>
+<p><img alt="alt text" src="Report%20Images/prox_1.png"/></p>
+<p><img alt="alt text" src="Report%20Images/prox_2.png"/></p>
+<blockquote>
+<p>we also have each loss for proximal gradient update plotted together:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/prox_all.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>We can see that the proximal term succeeds in allowing for smoother convergence toward the overal objective. We see the same tradeoff for L1 regularization in that we can incentivize sparser solutions at the expense of loss.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7804,6 +7929,40 @@ thresholding threshold {0.02, 0.04, 0.1, 0.2}). Plot the value of log(L) through
 and use another figure to plot the value of each element in W in each step. Comment on the
 convergence comparison of the Trimmed ℓ1 and the ℓ1. Also compare the behavior of the early
 steps (e.g. first 20) between the Trimmed ℓ1 and the iterative pruning.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Here we look at loss and weight curves for multiple lambda values with trimming:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/trimmed_1.png"/></p>
+<p><img alt="alt text" src="Report%20Images/trimmed_2.png"/></p>
+<p><img alt="alt text" src="Report%20Images/trimmed_5.png"/></p>
+<p><img alt="alt text" src="Report%20Images/trimmed_10.png"/></p>
+<blockquote>
+<p>And we can look at all the loss curves on top of each other</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/trimmed_all.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>We can see that the iterative pruning yields very similar weight behavior as our L1 trimming. This is most obvious in our trimming with strength 5, which selects the same weights albeit with lower magnitude.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7853,11 +8012,48 @@ pretrained model.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="alt text" src="Report%20Images/pretrainedLab2.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(b) (6pts)</strong> Complete the implementation of pruning by percentage function in the notebook. Here
 we determines the pruning threshold in each DNN layer by the ‘q-th percentile’ value in the
 absolute value of layer’s weight element. Use the next block to call your implemented pruning
 by percentage. Try pruning percentage q = 0.3, 0.5, 0.7. Report the test accuracy q. (Hint: You
 need to reload the full model checkpoint before applying the prune function with a different q ).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Pruning implementation:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/prune_by_percentage.png"/></p>
+<blockquote>
+<p>0.7 Pruning results:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2q70.png"/></p>
+<blockquote>
+<p>0.5 Pruning results:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2q50.png"/></p>
+<blockquote>
+<p>0.3 Pruning results:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2q30.png"/></p>
 </div>
 </div>
 </div>
@@ -7883,11 +8079,58 @@ finetuned model preserves the sparsity.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Here is the finetune code:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2finetune_after_prune.png"/></p>
+<p>and the results of the fine tuned model:</p>
+<p><img alt="alt text" src="Report%20Images/lab2postfinetune_results.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>we can see that the sparsification of the models has not changed but the accuracy has increased from 0.4204 to 0.8943 which is a significant improvement given that the model is now 70% sparse.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(d) (5pts)</strong> Implement iterative pruning. Instead of applying single step pruning before finetuning, try
 iteratively increase the sparsity of the model before each epoch of finetuning. Linearly increase
 the pruning percentage for 10 epochs until reaching 70% in the final epoch (prune (7 × e)%
 before epoch e) then continue finetune for 10 epochs. Pruned weight can be recovered during
 the iterative pruning process before the final pruning step. Compare performance with (c)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="alt text" src="Report%20Images/lab2iterative_prune_implementation.png"/></p>
+<blockquote>
+<p>Here are the results:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2iterative_prune_results.png"/></p>
+<blockquote>
+<p>It appears that full pruning does slightly better</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7905,6 +8148,37 @@ Fill in the global_prune_by_percentage function to perform a global ranking of t
 magnitude from all the layers, and determine a single pruning threshold by percentage for all the
 layers. Repeat iterative pruning to 70% sparsity, and report final accuracy and the percentage of
 zeros in each layer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Global iterative prunign implementation:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2global_prune.png"/></p>
+<blockquote>
+<p>Results:</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab2global_prune_results.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Here we see our best performance yet with global iterative pruning outperforming the other methods.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7960,11 +8234,52 @@ ensure that STE is only applied on non-zero weight elements for quantization. )<
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="alt text" src="Report%20Images/lab3_a.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(b) (5 pts)</strong> In hw4.ipynb, load pretrained ResNet-20 model, report the accuracy of the floating-point
 pretrained model. Then set Nbits in the first line of block 4 to 6, 5, 4, 3, and 2 respectively, run
 it and report the test accuracy you got. (Hint: In this block the line defining the ResNet model
 (second line) will set the residual blocks in all three stages to Nbits fixed-point, while keeping
 the first conv and final FC layer still as floating point.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Nbits = 6</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_6.png"/></p>
+<blockquote>
+<p>Nbits = 5</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_5.png"/></p>
+<blockquote>
+<p>Nbits = 4</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_4.png"/></p>
+<blockquote>
+<p>Nbits = 3</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_3.png"/></p>
+<blockquote>
+<p>Nbits = 2</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_2.png"/></p>
 </div>
 </div>
 </div>
@@ -7989,10 +8304,90 @@ relationship between precision and accuracy, and on the effectiveness of finetun
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Nbits = 4 (test acc = 0.9134)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_4_results.png"/></p>
+<blockquote>
+<p>Nbits = 3 (test acc = 0.9056)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_3_results.png"/></p>
+<blockquote>
+<p>Nbits = 2 (test acc = 0.8518)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_2_results.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>We can see that for lower precision (lower Nbit values) we get lower accuracy. This is expected as we are reducing the number of bits used to represent the weights. Finetuning is effective in that it allows us to recover some of the lost accuracy from quantization. In all cases the finetuning performance is much better than the quantized pretrained model.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>(d) (5 pts)</strong> In practice, we want to apply both pruning and quantization on the DNN model. Here we
 explore how pruning will affect quantization performance. Please load the checkpoint of the 70%
 sparsity model with the best accuracy from Lab 2, repeat the process in (c), report the accuracy
 before and after finetuning, and discuss your observations comparing to (c)’s results.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Nbits = 4 (test acc = 0.9047)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_4_pruned_results.png"/></p>
+<blockquote>
+<p>Nbits = 3 (test acc = 0.8817)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_3_pruned_results.png"/></p>
+<blockquote>
+<p>Nbits = 2 (test acc = 0.8919)</p>
+</blockquote>
+<p><img alt="alt text" src="Report%20Images/lab3_nbits_2_pruning_result.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>This result is interesting because our nbit 2 precision actually outperformed our nbit 3 precision in terms of test accuracy. But our nbit 4 precision model performed comparably to the nbit 3 precision model with no pruning. This means that we get a quantized and pruned model that has fairly good performance and that these techniques can be used together to achieve a good balance between model size and performance.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
